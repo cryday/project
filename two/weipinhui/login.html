@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录</title>
+	<link rel="stylesheet" href="./static/css/login.css">
+	<link rel="icon" href="./static/imgs/te.png">
+</head>
+<body>
+<div id="clearfix"></div>
+<div id="wrap">
+	<div id="header">
+		<div id="header_left"><a href="#" class="logo"></a></div>
+		<div id="header_right"></div>
+	</div>
+	<div id="container">
+		<div id="login">
+		  <div id="pp">如有账号，请登录</div>
+			<form action="">			
+			 	<div>
+					<input id="user-name" type="text" placeholder="手机号/用户名/邮箱" name="">
+				<span id="no">账户不存在！</span>
+				</div><br>		
+				<div>
+					<input id="user-password" type="password" name="" maxlength="20" placeholder="密码" >
+					<span id="err">密码错误！</span>
+				</div><br>			
+				<input id="lg" class="button-login" type="button" style="width: 280px;" value="登录">
+			</form>
+			<div id="other">
+				<span class="jizhu"><input type="checkbox"><label>记住用户名</label></span>
+				<span class="ot">
+				<a href="./index.html" class="mima">忘记密码?</a>|
+				<a href="#" class="zuce">免费注册</a>
+				</span>
+			</div>				
+		</div>
+	</div>
+</div>
+ <script src="static/jquery/jquery-1.11.2.min.js"></script>
+ <script src="static/js/login.js"></script>
+</body>
+</html>

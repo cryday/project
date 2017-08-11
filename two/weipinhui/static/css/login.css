@@ -1,0 +1,112 @@
+/* =========登录样式================== */
+*{
+	margin:0;
+	padding:0;
+}
+a{
+	text-decoration: none;
+}
+li{
+	list-style:none;	
+}
+input{
+	outline: none;
+}
+#clearfix{
+	width:1000px;
+	height:50px;
+	 /*background:yellow;*/
+	margin:0 auto;
+}
+
+#header{
+    width:1000px;
+    height:97px;
+     /*background:red;   */
+    margin:0 auto;
+     /*border:1px solid #ccf;*/
+}
+#header_left{
+	 float:left;
+     width:313px;
+     height:53px;
+     background:url("../imgs/sprite.png") no-repeat 0 0;
+}
+#header_right{
+	float:right;
+	width: 445px;
+	height: 28px;
+    background:url("../imgs/sprite.png") no-repeat -317px 0;
+    margin-top:10px;
+}
+#container{
+	width:1000px;
+	height:600px;
+	background:url("../imgs/login-bg.jpg") no-repeat;
+	margin:0 auto;	
+}
+#login{
+	float:right;
+	/*width:274px;*/
+	 /*height:400px;*/
+	 /*background:pink;*/
+	padding-top:40px;
+	padding-right:100px;
+	margin-top:20px;
+}
+#login #pp{
+	width:274px;
+	/*background:yellow;*/
+	font-size:14px;
+	line-height:16px;
+	margin-bottom:15px;
+}
+#user-name{
+	width: 272px;
+	height: 36px;
+	border-radius:3px;
+	border:1px solid #b2b2b2;
+}
+#err,#no{
+	display: none;
+	color:red;
+	font-size:12px;
+}
+
+#user-password{
+	width: 272px;
+	height: 36px;
+	border-radius:3px;
+	border:1px solid #b2b2b2;
+	
+}
+#lg{
+	width:140px;
+	height: 40px;
+	border:none;
+	background: #f43499;
+	border-color: #f43499;
+	border-radius:5px;
+	color:#fff;
+	font-size:18px;
+}
+#other{
+	margin-top:20px;
+	font-size:12px;
+
+}
+#other .ot{
+	float:right;
+}
+#other .mima{
+	color:#333;
+}
+#other .mima:hover{
+	color: #f43499;
+}
+#other .zuce{
+	color: #f43499;
+	
+}
+
+
