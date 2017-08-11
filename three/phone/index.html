@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>西餐美食</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/scss.css">
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/resp.js"></script>
+    <script src="js/angular.min.js"></script>	
+  <script src="js/angular-route.js"></script>
+	<script src="js/faskclick.js"></script>
+</head>
+<body >
+<!-- 头部内容====================== -->
+	<div class="hear">
+		<div class="he_left">北京市<span></span></div>
+		<div class="he_center"><div class="he_img"><img src="img/search.png" alt=""></div><input  ng-model="str1" type="text" name="search" value placeholder="请输入您要搜索的内容"></div>
+		<div class="he_right"><img src="img/icon-1.png"></div>
+	</div>
+<!-- 导航内容==================================== -->
+<div class="swiper-container nav">
+    <div class="swiper-wrapper">
+    <div class="swiper-slide">鲁菜</div>
+    <div class="swiper-slide">湘菜</div>
+    <div class="swiper-slide">粤菜</div>
+    <div class="swiper-slide">东北菜</div>
+    <div class="swiper-slide">桂菜</div>
+    <div class="swiper-slide">火锅</div>
+    <div class="swiper-slide">海鲜</div>
+    <div class="swiper-slide">海鲜</div>
+    <div class="swiper-slide">海鲜</div>
+    </div>
+   
+</div>	
+
+<!-- 轮播图================================= -->
+	<div class="swiper-container swp">
+    <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="img/lunbo.jpg"></div>
+    <div class="swiper-slide"><img src="img/img-1-3.jpg"></div>
+    <div class="swiper-slide"><img src="img/img-1-4.jpg"></div>       
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination s_dian"></div>
+</div>
+
+<!-- 内容导航========================= -->
+<div class="container-fluid box" >
+    <div class="row">
+    	<div class="col-xs-4"><span class="sp1"></span><p><a href="#/">附近热门</a></p></div>
+        <div class="col-xs-4"><span class="sp2"></span><p><a href="#/xinpin">今日新品</a></p></div>
+        <div class="col-xs-4" id="end"><img src="img/cart-t.png"><p class="p1"><a href="#/shopcar">购物车</a></p></div>
+	</div>
+	
+</div>
+
+ <!-- view层===================== -->
+ <div ng-view ng-controller="cont"></div>
+
+ 
+	
+
+	
+	<script src="js/swiper.min.js"></script>
+	<script src="js/swiper.animate1.0.2.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/fly.js"></script>
+
+
+	<script>        
+  var mySwiper = new Swiper ('.swp', {   
+    loop: true,    
+    // 如果需要分页器
+    pagination: '.swiper-pagination', 
+    autoplay:1000,
+
+   
+  })  
+  var mySwiper = new Swiper ('.nav', {   
+    loop: true,  
+    watchSlidesProgress : true,
+    watchSlidesVisibility : true,
+    slidesPerView : 7, 
+    
+  })              
+  </script>
+ 	<script>		
+		var app=angular.module("myapp",['ngRoute'],RouterConfig);
+		function RouterConfig($routeProvider){			
+			$routeProvider
+				.when("/",
+					{templateUrl:"tmpl/index.html"
+				})
+				.when("/xinpin",
+					{templateUrl:"tmpl/xinpin.html"
+				})
+				.when("/shopcar",
+					{templateUrl:"tmpl/shopcar.html"
+				})
+        .when("/detail",
+          {templateUrl:"tmpl/detail.html"
+        })  				
+		}		
+		app.filter("sub",function(){
+			return function(val,num){
+				if(val.length>num){
+					var dis=val.substring(0,num)+"...";
+				}else{
+					var dis=val;
+				}
+			return dis;
+			}
+		})
+			app.controller("cont",function($scope){
+             $scope.data=[
+               {"goodsId":"101010","img1":"./img/01.png","name":"三胖食府","img2":"./img/img-1-1.jpg","img3":"./img/list-cart.png","describe":"《养生里脊圈》","price":"423"},
+               {"goodsId":"10fddsdf","img1":"./img/02.jpg","name":"萝卜美食坊","img2":"./img/img-1-2.png","img3":"./img/list-cart.png","describe":"《野生美味果》","price":"388"},
+               {"goodsId":"123322","img1":"./img/03.jpg","name":"黄河府邸","img2":"./img/img-1-3.jpg","img3":"./img/list-cart.png","describe":"《七分熟牛排》","price":"488"},
+                {"goodsId":"2332846","img1":"./img/04.jpg","name":"萝卜美食坊","img2":"./img/img-1-4.jpg","img3":"./img/list-cart.png","describe":"《意大利面》","price":"588"},
+                {"goodsId":"235346","img1":"./img/05.jpg","name":"阿妹牛排","img2":"./img/img-1-5.jpg","img3":"./img/list-cart.png","describe":"《德国排骨》","price":"688"},
+               {"goodsId":"897870","img1":"./img/06.jpg","name":"天上人间","img2":"./img/img-1-6.jpg","img3":"./img/list-cart.png","describe":"《水果沙拉拼盘》","price":"300"},
+               {"goodsId":"231434","img1":"./img/07.jpg","name":"二十八味","img2":"./img/img-1-7.jpg","img3":"./img/list-cart.png","describe":"《水果披萨》","price":"188"},
+               {"goodsId":"124135","img1":"./img/08.png","name":"你和我","img2":"./img/img-1-8.jpg","img3":"./img/list-cart.png","describe":"《卡布奇诺》","price":"80"},
+               {"goodsId":"5676821","img1":"./img/09.jpg","name":"天下一绝","img2":"./img/img-1-9.jpg","img3":"./img/list-cart.png","describe":"《法国牛排掺意大利面》","price":"688"},
+               {"goodsId":"134554","img1":"./img/10.jpg","name":"仅此一家","img2":"./img/img-1-10.jpg","img3":"./img/list-cart.png","describe":"《爵位牛排》","price":"450"},
+              
+             ]; 
+             angular.forEach($scope.data,function(item,index){
+            	// console.log(item);
+            	item.num=0;
+            	item.price=-(-(item.price));
+            })
+            $scope.set=function(goodsId,bool){
+            	// console.log(goodsId);
+            	angular.forEach($scope.data,function(item,index){
+            		if(goodsId==item.goodsId){
+            			if(bool){
+							if(item.num==0){
+								item.num=1;
+								 $scope.cart.push(item);
+							}else{
+								item.num++;
+							}
+            			}else{
+            					item.num--;
+            					item.num=item.num<=0?0:item.num;
+            					
+            			}
+            		}
+
+            	})
+            		// console.log($scope.cart);
+            	
+            }
+            $scope.cart=[];
+
+ /*           $scope.$watch("data",function(){
+         		var allPrice=0;
+            	angular.forEach($scope.cart,function(item,index){
+            		allPrice+=item.num*item.price;
+            		if(item.num<=0){
+	            		$scope.cart.splice(index,1);
+            		}
+            	})
+            	// console.log(allPrice);
+
+            },true);*/
+
+           $scope.sumPrice = function() {
+            var allPrice = 0;
+            angular.forEach($scope.cart, function(item, index) {
+                // 计算总价 
+                allPrice += item.num * item.price;
+                if (item.num <= 0) {
+                    $scope.cart.splice(index, 1)
+                };
+            })
+            return allPrice;
+        }
+
+      /*飞起的购物车*/  
+      $scope.show=function(){
+
+      var flyer = $('<img class="u-flyer" src="img/list-cart.png">');
+
+       // console.log(flyer);
+            //鼠标在页面点击开始位置计算.
+      var top = $(window).scrollTop();
+      
+      var dh = event.pageY;
+
+      var newh = dh - top;
+
+
+      // 购物车按钮  end在那图片飘到哪
+      var oDiv = $('#end').offset();
+
+
+      var newdh = oDiv.top - top;
+
+      // 我可以设置初始,结束,图片宽度
+      flyer.fly({
+        start: {
+          left: event.pageX,
+          top: newh,
+          // width:1000,
+          // height:1000,
+          // 初始的图片样式我可以设置在class类里面
+        },
+        end: {
+          left: oDiv.left,
+          top: newdh,
+          width: 0,
+          height: 0
+        }
+      });
+    };
+  
+
+    function setIco(event) {
+
+            // 变量区,当前按钮,当前图片
+    
+  
+    }
+
+			})
+
+
+    
+  </script>
+</body>
+</html>

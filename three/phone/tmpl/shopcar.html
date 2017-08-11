@@ -1,0 +1,56 @@
+ <div id="wrap"> 
+            <div class="top_nav">
+                <div class="left fl">
+                    <img class="logo fl" src="./img/logo.png" alt="">
+                    <span class="fl">我的宝贝</span>
+                </div>
+                <img class="user fr" src="./img/user.png" />
+            </div>            
+            <ul>
+                 <li ng-repeat="item in cart">
+                    <img ng-src="{{item.img2}}">
+                    <div class="contro">
+                        <p>{{item.describe}}</p>                       
+                        <p>{{item.num*item.price|currency:"￥"}}</p>
+
+                        <button class="lbtn" ng-click="set(item.goodsId,true)">+</button>
+                        <span>   
+                             {{item.num}} 
+                        </span>
+
+                        <button class="rbtn" ng-click="set(item.goodsId,false)">-</button>
+                       <button class="dbtn" ng-click="set(item.goodsId,false)">删除</button>
+                      </div>
+                </li>
+                  <!--  <li>
+                                   <img src="img/img-1-1.jpg">
+                                   <div class="contro">
+                                       <p>《养生里脊圈》</p>                        
+                                       <p>￥588.00</p>
+                                                  
+                                       <button class="lbtn">+</button>
+                                       <span>   
+                                               0
+                                       </span>
+                                                  
+                                       <button class="rbtn" >-</button>
+                                                  
+                                   </div>
+                                                  </li> -->               
+            </ul> 
+            <!-- <div ng-show="!cart.length" class="clearfix" style="width:100%;height:1.5rem"></div>   -->           
+            <div ng-show="!cart.length" class="kong"><img style="width:2.0rem; height:2.0srem;border-radius:50%; float:left;" src="img/my_cnt.jpg" alt=""><h4>您的购物车没有东西！！！</h4></div>      
+            <div class="clearfix" style="width:100%;height:4.0rem"></div>
+         <div class="bottom_nav" style="z-index:103;">
+            <a  class="bottom_button" href="javascript:void(0)">结算</a>
+            <span class="btn">{{sumPrice()|currency:"￥"}}</span>
+            <div class="cart">
+                <img id="end" src="./img/cart.png" alt="">
+                <span>{{cart.length}}</span>
+            </div>
+        </div>
+
+    </div>      
+</div>
+
+
